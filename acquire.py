@@ -94,13 +94,13 @@ def acquire_imdb():
                         vote = container.find('span', attrs = {'name':'nv'})['data-value']
                         votes.append(int(vote))
         
-        movies = pd.DataFrame({
-            'movie':names,
-            'year':years,
-            'imdb_rating':imdb_ratings,
-            'metascore':metascores,
-            'votes':votes})
-        movies.loc[:, 'year'] = movies['year'].str[-5:-1].astype(int)   
-        # importing to csv
-        movies.to_csv('movie_ratings.csv')        
-        return movies
+            movies = pd.DataFrame({
+                'movie':names,
+                'year':years,
+                'imdb_rating':imdb_ratings,
+                'metascore':metascores,
+                'votes':votes})
+            movies.loc[:, 'year'] = movies['year'].str[-5:-1].astype(int)   
+            # importing to csv
+            movies.to_csv('movie_ratings.csv')        
+    return movies
